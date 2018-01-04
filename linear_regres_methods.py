@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 
 
 class Data(object):
@@ -44,7 +45,10 @@ def gradient_descent_algo(X, Y, theta, alpha, iters):
 		cost[i] = compute_the_cost(X,Y,theta)
 		#print "costing array"
 		#print cost[i]
-
+	
+	if not check_cost_decrease(cost):
+		sys.stderr.write('error: cost is not decreasing, check gradient descent algorithm')
+		
 
 	return theta, cost
 
@@ -57,7 +61,15 @@ def compute_the_cost(X,Y,theta):
 
 	return cost
 
+def check_cost_decrease(cost):
+	size = len(cost)
 	
+	for i in range(size-1):
+		
+		if cost[i] < cost[i+1]:
+			return False
+
+	return True	
 	
 
 #def Create_graph():

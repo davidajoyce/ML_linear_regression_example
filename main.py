@@ -22,8 +22,6 @@ def main():
 		
 	Theta, Cost = lrm.gradient_descent_algo(data_matrix.X, data_matrix.Y, theta, alpha, iters)
 
-	print "cost"
-	print Cost
 
 	#lrm.Create_graph()
 
