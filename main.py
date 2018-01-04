@@ -6,11 +6,21 @@ def main():
 
 	path = os.getcwd() + '/sampledata1.txt'
 	#setup data object where we can access all the relevant parameters for calculations
-	data_ex = lrm.Data(path)
-		
-	Theta, Cost = lrm.gradient_descent_algo()
 
-	lrm.Create_graph()
+	
+	#create table from txt file 
+	data_table = lrm.create_data_table(path)
+
+	data1 = lrm.Data(data_table)
+
+	print "test class"
+	print data1.X
+
+	#data_matrix = lrm.Data(data_X, data_Y)	
+		
+	#Theta, Cost = lrm.gradient_descent_algo()
+
+	#lrm.Create_graph()
 
 
 	
