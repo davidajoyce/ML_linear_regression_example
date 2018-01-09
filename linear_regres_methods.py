@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import sys
-
+import matplotlib.pyplot as plt
 
 class Data(object):
 	
@@ -72,6 +72,37 @@ def check_cost_decrease(cost):
 	return True	
 	
 
-#def Create_graph():
+def create_graph(data, theta, iters, cost):
+
+
+	graph = data.plot(kind='scatter', x='Population', y='Profit',figsize=(12,8))
+
+	#first figure see what the scatter plot looks like
+	plt.show()
+
+	x = np.linspace(data.Population.min(), data.Population.max(), 100)  
+	f = theta[0, 0] + (theta[0, 1] * x)
+
+	fig, ax = plt.subplots(figsize=(12,8))  
+	ax.plot(x, f, 'r', label='Prediction')  
+	ax.scatter(data.Population, data.Profit, label='Traning Data')  
+	ax.legend(loc=2)  
+	ax.set_xlabel('Population')  
+	ax.set_ylabel('Profit')  
+	ax.set_title('Predicted Profit vs. Population Size')  
+
+	#display the prediction based on the training data scatter plot above
+	plt.show()
+
+	#display how the error and cost changes throughout the iterations
+	fig, ax = plt.subplots(figsize=(12,8))  
+	ax.plot(np.arange(iters), cost, 'r')  
+	ax.set_xlabel('Iterations')  
+	ax.set_ylabel('Cost')  
+	ax.set_title('Error vs. Training Epoch')  
+
+	plt.show()
+
+
 
 	
