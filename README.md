@@ -46,6 +46,8 @@ path = os.getcwd() + '/sampledata1.txt'
 
 ## Gradient Descent Algorithm for Linear Regression
 
+We're trying to create a linear model of the data X, using some number of parameters theta, that describes the variance of the data such that given a new data point that's not in X, we could accurately predict what the outcome y would be without actually knowing what y is.
+
 The objective of linear regression is to minimize the cost function:
 
 ![first equation](http://latex.codecogs.com/gif.latex?J%28%5CTheta%20%29%20%3D%20%5Cfrac%7B1%7D%7B2m%7D%5Csum_%7Bi%3D1%7D%5E%7Bm%7D%28h_%7B%5CTheta%20%7D%28x%5E%7B%28i%29%7D%29-y%5E%7B%28i%29%7D%29%5E%7B2%7D)
